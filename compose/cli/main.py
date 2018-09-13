@@ -52,6 +52,7 @@ from .formatter import ConsoleWarningFormatter
 from .formatter import Formatter
 from .log_printer import build_log_presenters
 from .log_printer import LogPrinter
+from ..utils import set_quiet
 from .utils import get_version_info
 from .utils import human_readable_file_size
 from .utils import yesno
@@ -170,6 +171,8 @@ def setup_console_handler(handler, verbose, noansi=False, level=None):
             )
 
     handler.setLevel(loglevel)
+    if loglevel >= logging.WARNING:
+        set_quiet()
 
 
 # stolen from docopt master
