@@ -426,15 +426,15 @@ class TopLevelCommand(object):
         """
         environment = Environment.from_env_file(self.project_dir)
         ignore_orphans = environment.get_boolean('COMPOSE_IGNORE_ORPHANS')
+        quiet = options.get('--quiet')
 
         if ignore_orphans and options['--remove-orphans']:
             raise UserError("COMPOSE_IGNORE_ORPHANS and --remove-orphans cannot be combined.")
 
         image_type = image_type_from_opt('--rmi', options['--rmi'])
         timeout = timeout_from_opts(options)
-        if options['--quiet']:
-            set_quiet()
 
+        set_quiet(quiet)
         self.project.down(
             image_type,
             options['--volumes'],
