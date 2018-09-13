@@ -22,9 +22,11 @@ json_decoder = json.JSONDecoder()
 log = logging.getLogger(__name__)
 keep_quiet = False
 
+
 def set_quiet(quiet=True):
     global keep_quiet
     keep_quiet = quiet
+
 
 def get_output_stream(stream):
     global keep_quiet

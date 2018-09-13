@@ -42,6 +42,7 @@ from ..service import ConvergenceStrategy
 from ..service import ImageType
 from ..service import NeedsBuildError
 from ..service import OperationFailedError
+from ..utils import set_quiet
 from .command import get_config_from_options
 from .command import project_from_options
 from .docopt_command import DocoptDispatcher
@@ -52,7 +53,6 @@ from .formatter import ConsoleWarningFormatter
 from .formatter import Formatter
 from .log_printer import build_log_presenters
 from .log_printer import LogPrinter
-from ..utils import set_quiet
 from .utils import get_version_info
 from .utils import human_readable_file_size
 from .utils import yesno
